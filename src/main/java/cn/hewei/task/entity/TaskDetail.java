@@ -1,49 +1,72 @@
 package cn.hewei.task.entity;
 
+import java.math.BigDecimal;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- * 任务明细表(TaskDetail)实体类
+ * <p>
+ * 任务明细表
+ * </p>
  *
  * @author hewei
- * @since 2020-03-15 02:32:16
+ * @since 2020-03-16
  */
 @Data
 public class TaskDetail implements Serializable {
-    private static final long serialVersionUID = -21171919557239130L;
+
+    private static final long serialVersionUID = 1L;
+
     /**
-    * 任务明细id
-    */
+     * 任务明细id
+     */
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+
     /**
-    * 任务id
-    */
+     * 任务id
+     */
+    @TableField("task_id")
     private Long taskId;
+
     /**
-    * 关键词
-    */
+     * 关键词
+     */
+    @TableField("keyword")
     private String keyword;
+
     /**
-    * 关键字使用次数
-    */
+     * 关键字使用次数
+     */
+    @TableField("count")
     private Integer count;
+
     /**
-    * 商品规格 例如：XL
-    */
+     * 商品规格 例如：XL
+     */
+    @TableField("sku")
     private String sku;
+
     /**
-    * 下单价
-    */
-    private Double price;
+     * 下单价
+     */
+    @TableField("price")
+    private BigDecimal price;
+
     /**
-    * 创建时间
-    */
-    private Date createdTime;
+     * 创建时间
+     */
+    @TableField("created_time")
+    private LocalDateTime createdTime;
+
     /**
-    * 更新时间
-    */
-    private Date updatedTime;
+     * 更新时间
+     */
+    @TableField("updated_time")
+    private LocalDateTime updatedTime;
 }

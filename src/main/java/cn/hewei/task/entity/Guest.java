@@ -10,52 +10,40 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 用户表
+ * 刷手表
  * </p>
  *
  * @author hewei
  * @since 2020-03-16
  */
 @Data
-public class Users implements Serializable {
+public class Guest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户id
+     * 刷手id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户姓名
+     * 业务员id
      */
-    @TableField("name")
-    private String name;
+    @TableField("userId")
+    private Long userId;
 
     /**
-     * 登录账户
+     * 刷手旺旺号
      */
-    @TableField("username")
-    private String username;
+    @TableField("wangwang")
+    private String wangwang;
 
     /**
-     * 登录密码
+     * 刷手微信号
      */
-    @TableField("password")
-    private String password;
-
-    /**
-     * 用户类型 1: 管理员 2：业务员
-     */
-    @TableField("type")
-    private Integer type;
-
-    /**
-     * 状态 1：启用 0：禁用
-     */
-    @TableField("status")
-    private Integer status;
+    @TableField("weixin")
+    private String weixin;
 
     /**
      * 创建时间

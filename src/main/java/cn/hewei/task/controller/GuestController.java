@@ -8,14 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * 任务明细表 前端控制器
+ * 刷手表 前端控制器
  * </p>
  *
  * @author hewei
  * @since 2020-03-16
  */
 @RestController
-@RequestMapping("/task_detail")
-public class TaskDetailController {
+@RequestMapping("/guest")
+public class GuestController {
+
+
+
 
 }

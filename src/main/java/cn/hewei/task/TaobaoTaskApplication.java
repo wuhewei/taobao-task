@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("cn.hewei.task.dao")
+@MapperScan("cn.hewei.task.mapper")
 public class TaobaoTaskApplication {
 
     public static void main(String[] args) {

@@ -1,80 +1,20 @@
 package cn.hewei.task.service.impl;
 
 import cn.hewei.task.entity.Task;
-import cn.hewei.task.dao.TaskDao;
-import cn.hewei.task.service.TaskService;
+import cn.hewei.task.mapper.TaskMapper;
+import cn.hewei.task.service.ITaskService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.List;
-
 /**
- * 任务表(Task)表服务实现类
+ * <p>
+ * 任务表 服务实现类
+ * </p>
  *
  * @author hewei
- * @since 2020-03-15 02:32:16
+ * @since 2020-03-16
  */
-@Service("taskService")
-public class TaskServiceImpl implements TaskService {
+@Service
+public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements ITaskService {
 
-    @Resource
-    private TaskDao taskDao;
-
-    /**
-     * 通过ID查询单条数据
-     *
-     * @param id 主键
-     * @return 实例对象
-     */
-    @Override
-    public Task queryById(Long id) {
-        return this.taskDao.queryById(id);
-    }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<Task> queryAllByLimit(int offset, int limit) {
-        return this.taskDao.queryAllByLimit(offset, limit);
-    }
-
-    /**
-     * 新增数据
-     *
-     * @param task 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public Task insert(Task task) {
-        this.taskDao.insert(task);
-        return task;
-    }
-
-    /**
-     * 修改数据
-     *
-     * @param task 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public Task update(Task task) {
-        this.taskDao.update(task);
-        return this.queryById(task.getId());
-    }
-
-    /**
-     * 通过主键删除数据
-     *
-     * @param id 主键
-     * @return 是否成功
-     */
-    @Override
-    public boolean deleteById(Long id) {
-        return this.taskDao.deleteById(id) > 0;
-    }
 }
