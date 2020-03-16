@@ -33,15 +33,16 @@ public class ShopController {
         return R.ok().data(shopService.list());
     }
 
-    @GetMapping("/get")
-    public R<Shop> get(Integer shopId) {
-        return R.ok().data(shopService.getById(shopId));
-    }
-
     @PostMapping("/saveOrUpdate")
     public R<Shop> saveOrUpdate(@RequestBody Shop shop) {
         shopService.saveOrUpdate(shop);
         return R.ok().data(shop);
+    }
+
+    @PostMapping("/delete")
+    public R<Void> delete(Integer shopId) {
+        shopService.removeById(shopId);
+        return R.ok();
     }
 
 }
