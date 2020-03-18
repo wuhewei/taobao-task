@@ -1,10 +1,16 @@
 package cn.hewei.task.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import cn.hewei.task.dto.R;
+import cn.hewei.task.entity.Shop;
+import cn.hewei.task.entity.Task;
+import cn.hewei.task.service.ITaskService;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -16,6 +22,27 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/task")
+@SuppressWarnings("unchecked")
 public class TaskController {
+
+    @Resource
+    private ITaskService taskService;
+
+    @RequestMapping("/list")
+    public R<List<Task>> list() {
+        return R.ok().data(taskService.list());
+    }
+
+    @PostMapping("/saveOrUpdate")
+    public R<Task> saveOrUpdate(@RequestBody Task task) {
+        taskService.saveOrUpdate(task);
+        return R.ok().data(task);
+    }
+
+    @PostMapping("/delete")
+    public R<Void> delete(@RequestParam Integer taskId) {
+        taskService.removeById(taskId);
+        return R.ok();
+    }
 
 }

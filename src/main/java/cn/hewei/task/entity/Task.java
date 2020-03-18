@@ -37,7 +37,7 @@ public class Task implements Serializable {
     /**
      * 店铺id
      */
-    @TableField("shopId")
+    @TableField("shop_id")
     private Long shopId;
 
     /**

@@ -40,7 +40,7 @@ public class ShopController {
     }
 
     @PostMapping("/delete")
-    public R<Void> delete(Integer shopId) {
+    public R<Void> delete(@RequestParam Integer shopId) {
         shopService.removeById(shopId);
         return R.ok();
     }
