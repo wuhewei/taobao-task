@@ -34,7 +34,7 @@ public class Guest implements Serializable {
     /**
      * 业务员id
      */
-    @TableField("userId")
+    @TableField("user_id")
     private Long userId;
 
     /**

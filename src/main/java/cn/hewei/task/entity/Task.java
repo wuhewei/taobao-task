@@ -49,13 +49,13 @@ public class Task implements Serializable {
     /**
      * 商品链接
      */
-    @TableField("linkUrl")
+    @TableField("link_url")
     private String linkUrl;
 
     /**
      * 商品主图链接
      */
-    @TableField("photoUrl")
+    @TableField("photo_url")
     private String photoUrl;
 
     /**
